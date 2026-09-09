@@ -118,4 +118,12 @@ http:
           - url: "http://securemyass-wp:80"
 YAML;
     }
+
+    /**
+     * Alias for generate_traefik_config
+     */
+    public function get_traefik_dynamic_config() {
+        return $this->generate_traefik_config();
+    }
 }
+
