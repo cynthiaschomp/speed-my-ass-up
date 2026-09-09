@@ -14,7 +14,7 @@
 - **CLS Zero-Shift Armor**: Parses HTML for images and iframes lacking dimension attributes, calculates native aspect ratios, and injects `width`, `height`, and inline CSS `aspect-ratio` to eliminate Cumulative Layout Shift (`CLS = 0.000`).
 - **Smart Delay & Defer Script Scheduler**: Defers non-critical JavaScript until user interaction (`pointerdown`, `keydown`, `scroll`, `wheel`) with zero-break safelists for Divi 5, WooCommerce, and Stripe.
 - **Zero SaaS Dependencies**: 100% on-server pure PHP and native browser standards. No external cloud SaaS queues, no quota throttles, and no recurring API fees.
-- **Security-Aware Cache Shield**: Integrates with **Guard My Ass (GMA)** Shannon entropy engine to detect and reject query-string cache poisoning and exploit payloads.
+- **Security-Aware Cache Shield**: Integrates with **Guard My A$$ (GMA)** Shannon entropy engine to detect and reject query-string cache poisoning and exploit payloads.
 - **YouTube & Vimeo Video Facades**: Replaces heavy iframe video embeds with lightweight preview posters and responsive SVG play buttons, saving ~1.2MB of JS per embed.
 - **Full WP-CLI Operations**: Comprehensive command-line control via `wp smau status`, `wp smau cache_clear`, `wp smau preload`, `wp smau optimize_db`, and `wp smau benchmark`.
 
@@ -69,7 +69,7 @@
 | **Critical CSS / RUCSS** | External cloud SaaS queue (slow & rate-limited) | Pure-PHP local AST & DOM regex extraction |
 | **Pre-Boot Fast Path** | Standard output buffer | Sub-0.5ms `advanced-cache.php` disk delivery |
 | **Pre-Rendering** | Legacy `instant.page` script | Native **W3C Speculation Rules API** |
-| **Security Synergy** | None (vulnerable to cache-poisoning) | Integrates with **Guard My Ass** entropy engine |
+| **Security Synergy** | None (vulnerable to cache-poisoning) | Integrates with **Guard My A$$** entropy engine |
 | **Video Facades** | Basic placeholders | Smart responsive SVG facade engine |
 | **DevOps & CLI** | Basic cache clear | Full `wp smau` suite with automated TTFB benchmarking |
 
@@ -111,9 +111,9 @@
 ## 🔒 Security Sentinel Suite Interoperability
 
 **Speed My A$$ Up** coordinates natively with companion products:
-- **[Guard My Ass](https://github.com/cynthiaschomp/guard-my-ass)**: Pre-boot entropy filtering prevents cache-poisoning attacks from being stored on disk.
+- **[Guard My A$$](https://github.com/cynthiaschomp/guard-my-ass)**: Pre-boot entropy filtering prevents cache-poisoning attacks from being stored on disk.
 - **[Back My A$$ Up](https://github.com/cynthiaschomp/back-my-ass-up)**: Automatically excludes temporary cache files from backup archives to preserve cloud storage headroom.
-- **[Secure My Ass](https://github.com/cynthiaschomp/secure-my-ass-wp-plugin-ui)**: Enforces execution barriers (`.htaccess`, `.user.ini`, `index.php`) inside cache directories to eliminate PHP execution vectors.
+- **[Secure My A$$](https://github.com/cynthiaschomp/secure-my-ass)**: Enforces execution barriers (`.htaccess`, `.user.ini`, `index.php`) inside cache directories to eliminate PHP execution vectors.
 
 ---
 

@@ -96,6 +96,11 @@ class SMAU_Security_Bridge {
                 'active'  => true,
                 'version' => SMAU_VERSION,
                 'role'    => 'Pre-Boot Caching & Core Web Vitals Hyper-Engine'
+            ],
+            'compress_my_ass' => [
+                'active'  => defined('CMA_VERSION'),
+                'version' => defined('CMA_VERSION') ? CMA_VERSION : null,
+                'role'    => 'Zero-SaaS Local Image Compression & WebP/AVIF Hyper-Optimizer'
             ]
         ];
     }
