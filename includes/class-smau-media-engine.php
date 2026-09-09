@@ -75,7 +75,7 @@ class SMAU_Media_Engine {
                 $has_width = preg_match('/width=[\'"]?\d+/i', $attrs);
                 $has_height = preg_match('/height=[\'"]?\d+/i', $attrs);
 
-                if ($cls_enabled && (!$has_width || !has_height)) {
+                if ($cls_enabled && (!$has_width || !$has_height)) {
                     $dims = $this->get_image_dimensions($src);
                     if ($dims) {
                         list($w, $h) = $dims;
