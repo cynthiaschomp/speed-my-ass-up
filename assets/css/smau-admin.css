@@ -1,45 +1,80 @@
 /**
- * Speed My A$$ Up (SMAU) - Cyber-Industrial Admin Dashboard
+ * Speed My A$$ Up (SMAU) - Modern Cyber-Industrial Admin Dashboard
+ * Styled to match Secure My Ass (Sentinel Suite) Geometric Balance Design Theme
  * WCAG AAA/AA Contrast Compliance & OPSEC Anti-Shoulder-Surfing Standards
  */
 
-.smau-wrap {
-    max-width: 1400px;
-    margin: 20px 20px 40px 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    color: #f1f5f9;
+:root {
+    --smau-bg-base: #070a11;
+    --smau-surface: #0c1220;
+    --smau-card: #111827;
+    --smau-card-hover: #162238;
+    --smau-border: #1e293b;
+    --smau-border-bright: #334155;
+    --smau-cyan: #38bdf8;
+    --smau-cyan-glow: rgba(56, 189, 248, 0.35);
+    --smau-emerald: #10b981;
+    --smau-emerald-glow: rgba(16, 185, 129, 0.3);
+    --smau-amber: #f59e0b;
+    --smau-rose: #f43f5e;
+    --smau-text-main: #f8fafc;
+    --smau-text-muted: #94a3b8;
+    --smau-text-dim: #64748b;
 }
 
+#wpbody-content .smau-dashboard-wrap,
+.smau-dashboard-wrap {
+    max-width: 1440px;
+    margin: 20px 20px 40px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    color: var(--smau-text-main);
+    background: transparent;
+    box-sizing: border-box;
+}
+
+.smau-dashboard-wrap *,
+.smau-dashboard-wrap *::before,
+.smau-dashboard-wrap *::after {
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Header Bar
+   ========================================================================== */
 .smau-header {
-    background: linear-gradient(135deg, #090d16 0%, #111827 100%);
-    border: 1px solid #1e293b;
-    border-radius: 12px;
-    padding: 24px 32px;
-    margin-bottom: 24px;
+    background: linear-gradient(135deg, #090d16 0%, #0f172a 100%);
+    border: 1px solid var(--smau-border);
+    border-radius: 14px;
+    padding: 24px 30px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.5);
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
 .smau-brand {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 18px;
 }
 
-.smau-logo-icon {
-    width: 48px;
-    height: 48px;
+.smau-logo-badge {
+    width: 52px;
+    height: 52px;
     background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-    border-radius: 10px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 20px rgba(2, 132, 199, 0.4);
+    box-shadow: 0 0 25px var(--smau-cyan-glow);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    flex-shrink: 0;
 }
 
-.smau-brand h1 {
+.smau-brand-title h1 {
     margin: 0;
     font-size: 24px;
     font-weight: 800;
@@ -48,6 +83,14 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    line-height: 1.2;
+}
+
+.smau-brand-title p {
+    margin: 4px 0 0;
+    color: var(--smau-text-muted);
+    font-size: 13px;
+    font-weight: 400;
 }
 
 .smau-badge {
@@ -63,79 +106,203 @@
 
 .smau-badge-pro {
     background: rgba(14, 165, 233, 0.15);
-    color: #38bdf8;
-    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: var(--smau-cyan);
+    border: 1px solid rgba(56, 189, 248, 0.4);
 }
 
 .smau-badge-suite {
     background: rgba(16, 185, 129, 0.15);
-    color: #34d399;
-    border: 1px solid rgba(52, 211, 153, 0.3);
+    color: var(--smau-emerald);
+    border: 1px solid rgba(52, 211, 153, 0.4);
 }
 
-.smau-quick-actions {
+.smau-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid var(--smau-emerald);
+    color: var(--smau-emerald);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 9999px;
+}
+
+.smau-status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--smau-emerald);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--smau-emerald);
+    animation: smauPulse 2s infinite ease-in-out;
+}
+
+@keyframes smauPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.smau-header-actions {
     display: flex;
-    gap: 12px;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
 .smau-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 18px;
+    padding: 9px 16px;
     font-size: 13px;
     font-weight: 600;
     border-radius: 8px;
     border: 1px solid transparent;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
+    line-height: 1.4;
+}
+
+.smau-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 .smau-btn-primary {
-    background: #0284c7;
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
     color: #ffffff;
-}
-.smau-btn-primary:hover {
-    background: #0369a1;
-    box-shadow: 0 0 15px rgba(2, 132, 199, 0.5);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    box-shadow: 0 2px 10px rgba(2, 132, 199, 0.3);
 }
 
-.smau-btn-danger {
-    background: rgba(239, 68, 68, 0.15);
-    color: #f87171;
-    border-color: rgba(239, 68, 68, 0.3);
-}
-.smau-btn-danger:hover {
-    background: #ef4444;
+.smau-btn-primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.5);
     color: #ffffff;
+    transform: translateY(-1px);
 }
 
 .smau-btn-secondary {
     background: #1e293b;
-    color: #e2e8f0;
-    border-color: #334155;
-}
-.smau-btn-secondary:hover {
-    background: #334155;
-    color: #ffffff;
+    color: var(--smau-text-main);
+    border: 1px solid var(--smau-border-bright);
 }
 
-/* Metric Telemetry Cards */
+.smau-btn-secondary:hover:not(:disabled) {
+    background: #273549;
+    color: #ffffff;
+    border-color: #475569;
+}
+
+.smau-btn-danger {
+    background: rgba(244, 63, 94, 0.12);
+    color: #fb7185;
+    border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.smau-btn-danger:hover:not(:disabled) {
+    background: rgba(244, 63, 94, 0.22);
+    color: #ffffff;
+    border-color: rgba(244, 63, 94, 0.6);
+}
+
+.smau-btn-emerald {
+    background: rgba(16, 185, 129, 0.12);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.smau-btn-emerald:hover:not(:disabled) {
+    background: rgba(16, 185, 129, 0.22);
+    color: #ffffff;
+    border-color: rgba(16, 185, 129, 0.6);
+}
+
+/* ==========================================================================
+   Navigation Pills / Tabs
+   ========================================================================== */
+.smau-nav-pills {
+    display: flex;
+    gap: 8px;
+    background: #0b111e;
+    border: 1px solid var(--smau-border);
+    border-radius: 12px;
+    padding: 6px;
+    margin-bottom: 24px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+.smau-pill-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--smau-text-muted);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    white-space: nowrap;
+}
+
+.smau-pill-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.smau-pill-btn.active {
+    background: #1e293b;
+    color: var(--smau-cyan);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.smau-tab-pane {
+    display: none;
+}
+
+.smau-tab-pane.active {
+    display: block;
+    animation: smauFadeIn 0.25s ease-in-out;
+}
+
+@keyframes smauFadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   Hero Metrics Grid
+   ========================================================================== */
 .smau-metrics-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 16px;
     margin-bottom: 24px;
 }
 
 .smau-metric-card {
-    background: #0f172a;
-    border: 1px solid #1e293b;
-    border-radius: 10px;
-    padding: 20px;
+    background: linear-gradient(135deg, #0e1526 0%, #111827 100%);
+    border: 1px solid var(--smau-border);
+    border-radius: 12px;
+    padding: 20px 22px;
     position: relative;
     overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.smau-metric-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--smau-border-bright);
 }
 
 .smau-metric-card::before {
@@ -145,93 +312,121 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #0284c7, #38bdf8);
+    background: linear-gradient(90deg, var(--smau-cyan) 0%, transparent 100%);
+}
+
+.smau-metric-card.accent-emerald::before {
+    background: linear-gradient(90deg, var(--smau-emerald) 0%, transparent 100%);
+}
+
+.smau-metric-card.accent-amber::before {
+    background: linear-gradient(90deg, var(--smau-amber) 0%, transparent 100%);
 }
 
 .smau-metric-title {
     font-size: 12px;
-    font-weight: 600;
-    color: #94a3b8;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.6px;
+    color: var(--smau-text-muted);
     margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .smau-metric-val {
     font-size: 28px;
     font-weight: 800;
     color: #ffffff;
-    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
 }
 
 .smau-metric-sub {
     font-size: 12px;
-    color: #64748b;
-    margin-top: 6px;
+    color: var(--smau-text-dim);
 }
 
-/* Main Layout: Settings & Sidebar */
-.smau-layout {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 24px;
-}
-
+/* ==========================================================================
+   Card System
+   ========================================================================== */
 .smau-card {
-    background: #0f172a;
-    border: 1px solid #1e293b;
+    background: var(--smau-surface);
+    border: 1px solid var(--smau-border);
     border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 24px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 .smau-card-title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     color: #ffffff;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--smau-border);
     display: flex;
     align-items: center;
     gap: 10px;
-    border-bottom: 1px solid #1e293b;
-    padding-bottom: 12px;
 }
 
 .smau-setting-row {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     padding: 16px 0;
-    border-bottom: 1px solid #1e293b;
+    border-bottom: 1px solid rgba(30, 41, 59, 0.6);
+    gap: 24px;
 }
 
 .smau-setting-row:last-child {
     border-bottom: none;
+    padding-bottom: 0;
+}
+
+.smau-setting-row:first-of-type {
+    padding-top: 4px;
 }
 
 .smau-setting-info {
-    max-width: 80%;
+    flex: 1;
 }
 
 .smau-setting-title {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
-    color: #e2e8f0;
+    color: #f1f5f9;
     margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .smau-setting-desc {
-    font-size: 13px;
-    color: #94a3b8;
+    font-size: 12px;
+    color: var(--smau-text-muted);
     line-height: 1.5;
 }
 
-/* Toggle Switches */
+.smau-setting-desc code {
+    background: #1e293b;
+    color: var(--smau-cyan);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+/* ==========================================================================
+   Switch Toggles
+   ========================================================================== */
 .smau-switch {
     position: relative;
     display: inline-block;
-    width: 48px;
-    height: 26px;
+    width: 44px;
+    height: 24px;
+    flex-shrink: 0;
 }
 
 .smau-switch input {
@@ -243,53 +438,255 @@
 .smau-slider {
     position: absolute;
     cursor: pointer;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: #334155;
-    transition: .3s;
-    border-radius: 26px;
+    transition: .25s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 24px;
 }
 
 .smau-slider:before {
     position: absolute;
     content: "";
-    height: 20px;
-    width: 20px;
+    height: 18px;
+    width: 18px;
     left: 3px;
     bottom: 3px;
-    background-color: white;
-    transition: .3s;
+    background-color: #ffffff;
+    transition: .25s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-input:checked + .smau-slider {
-    background-color: #0284c7;
+.smau-switch input:checked + .smau-slider {
+    background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+    box-shadow: 0 0 12px var(--smau-cyan-glow);
 }
 
-input:checked + .smau-slider:before {
-    transform: translateX(22px);
+.smau-switch input:checked + .smau-slider:before {
+    transform: translateX(20px);
 }
 
-/* OPSEC Masked Fields */
-.smau-opsec-field {
+/* ==========================================================================
+   Live TTFB Benchmark Tool
+   ========================================================================== */
+.smau-benchmark-box {
+    background: #080d18;
+    border: 1px solid var(--smau-border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 16px;
+}
+
+.smau-input-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.smau-input {
+    background: #0f172a;
+    border: 1px solid var(--smau-border-bright);
+    color: #f8fafc;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.smau-input:focus {
+    border-color: var(--smau-cyan);
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+.smau-benchmark-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 14px;
+}
+
+.smau-benchmark-table th {
+    text-align: left;
+    padding: 8px 12px;
+    color: var(--smau-text-muted);
+    border-bottom: 1px solid var(--smau-border);
+    font-weight: 600;
+}
+
+.smau-benchmark-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(30, 41, 59, 0.4);
+    color: #f1f5f9;
+}
+
+.smau-cache-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.smau-cache-hit {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.smau-cache-miss {
+    background: rgba(244, 63, 94, 0.2);
+    color: #fb7185;
+    border: 1px solid rgba(244, 63, 94, 0.4);
+}
+
+/* ==========================================================================
+   BYOK AI CSS Scanner Styling
+   ========================================================================== */
+.smau-ai-providers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.smau-ai-provider-card {
+    background: #0e1526;
+    border: 1px solid var(--smau-border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    background: #090d16;
-    border: 1px solid #1e293b;
-    border-radius: 6px;
-    padding: 6px 12px;
-    font-family: monospace;
-    font-size: 13px;
-    color: #38bdf8;
-    margin-top: 8px;
+    gap: 12px;
 }
 
-.smau-eye-toggle {
-    margin-left: auto;
-    background: transparent;
-    border: none;
-    color: #64748b;
-    cursor: pointer;
+.smau-ai-provider-card:hover {
+    border-color: var(--smau-border-bright);
+    background: #141e33;
 }
-.smau-eye-toggle:hover {
-    color: #f1f5f9;
+
+.smau-ai-provider-card.active {
+    border-color: var(--smau-cyan);
+    background: rgba(2, 132, 199, 0.12);
+    box-shadow: 0 0 14px var(--smau-cyan-glow);
+}
+
+.smau-provider-radio {
+    accent-color: var(--smau-cyan);
+}
+
+.smau-ai-terminal {
+    background: #060910;
+    border: 1px solid var(--smau-border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 16px;
+    display: none;
+}
+
+.smau-ai-terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+}
+
+.smau-tag-chip {
+    display: inline-block;
+    padding: 3px 8px;
+    background: #1e293b;
+    color: var(--smau-cyan);
+    border-radius: 4px;
+    font-size: 11px;
+    margin: 2px 4px 2px 0;
+    word-break: break-all;
+}
+
+/* ==========================================================================
+   Suite Interop Cards
+   ========================================================================== */
+.smau-suite-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 14px;
+}
+
+.smau-suite-card {
+    background: #0d1424;
+    border: 1px solid var(--smau-border);
+    border-radius: 10px;
+    padding: 18px;
+    transition: all 0.2s ease;
+}
+
+.smau-suite-card:hover {
+    border-color: var(--smau-border-bright);
+}
+
+.smau-suite-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.smau-suite-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.smau-suite-role {
+    font-size: 12px;
+    color: var(--smau-text-muted);
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   Toast Feedback
+   ========================================================================== */
+.smau-toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.smau-toast {
+    background: #0f172a;
+    border: 1px solid var(--smau-emerald);
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: smauToastSlide 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smau-toast-error {
+    border-color: var(--smau-rose);
+}
+
+@keyframes smauToastSlide {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
 }

@@ -88,8 +88,8 @@ class SMAU_Security_Bridge {
                 'role'    => 'Cryptographic Air-Gap Vault Backups'
             ],
             'secure_my_ass' => [
-                'active'  => defined('SMA_VERSION'),
-                'version' => defined('SMA_VERSION') ? SMA_VERSION : null,
+                'active'  => defined('SECURE_MY_ASS_VERSION') || defined('SMA_VERSION'),
+                'version' => defined('SECURE_MY_ASS_VERSION') ? SECURE_MY_ASS_VERSION : (defined('SMA_VERSION') ? SMA_VERSION : null),
                 'role'    => 'AST Zero-Day Quarantine & SOC Platform'
             ],
             'speed_my_ass_up' => [
