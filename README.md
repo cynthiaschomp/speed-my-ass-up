@@ -1,7 +1,7 @@
 # Speed My A$$ Up (SMAU) 🏎️⚡
 
 > **Zero-Bloat, Security-Aware Web Performance & Core Web Vitals Hyper-Optimizer for WordPress**  
-> The 4th Pillar of the **[Security Sentinel Suite](https://securemyass.com)** by **[securemyass.com](https://securemyass.com)**.  
+> The 4th Pillar of the **[Whole A$$ Security Suite](https://securemyass.com)** by **[securemyass.com](https://securemyass.com)**.  
 > Direct open architecture alternative to **WP Rocket**.
 
 ---
@@ -108,12 +108,14 @@
 
 ---
 
-## 🔒 Security Sentinel Suite Interoperability
+## 🔒 Whole A$$ Security Suite Interoperability
 
-**Speed My A$$ Up** coordinates natively with companion products:
+**Speed My A$$ Up** coordinates natively with companion products in the **Whole A$$ Security Suite**:
 - **[Guard My A$$](https://github.com/cynthiaschomp/guard-my-ass)**: Pre-boot entropy filtering prevents cache-poisoning attacks from being stored on disk.
 - **[Back My A$$ Up](https://github.com/cynthiaschomp/back-my-ass-up)**: Automatically excludes temporary cache files from backup archives to preserve cloud storage headroom.
 - **[Secure My A$$](https://github.com/cynthiaschomp/secure-my-ass)**: Enforces execution barriers (`.htaccess`, `.user.ini`, `index.php`) inside cache directories to eliminate PHP execution vectors.
+- **[Compress My A$$](https://github.com/cynthiaschomp/compress-my-ass)**: Natively prioritizes CMA WebP and AVIF assets as high-priority LCP targets.
+- **[Doc My A$$](https://github.com/cynthiaschomp/doc-my-ass)**: High-velocity developer documentation system, Cmd+K search, Docs-as-Code, and zero-bloat standalone reader.
 
 ---
 
