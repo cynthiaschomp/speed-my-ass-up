@@ -3,7 +3,7 @@
  * Plugin Name: Speed My A$$ Up
  * Plugin URI: https://securemyass.com/speed-my-ass-up
  * Description: Zero-bloat, security-aware web performance & Core Web Vitals hyper-optimizer for WordPress. Sub-0.5ms pre-boot page caching, local pure-PHP CSS/HTML minifier, W3C Speculation Rules pre-rendering, LCP Turbo priority elevation, CLS zero-shift armor, and native Security Sentinel Suite synergy.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Cynthia Schomp
  * Author URI: https://cynthiaschomp.com
  * License: GPL v3.0
