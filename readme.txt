@@ -4,7 +4,7 @@ Tags: cache, caching, performance, speed, core web vitals, lcp, inp, cls, wp-roc
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -36,6 +36,13 @@ Features:
 Speed My A$$ Up does not rely on external cloud SaaS servers for Critical CSS or optimizations. It runs 100% on your server with pure PHP and native browser APIs, with zero recurring SaaS fees or bottlenecks.
 
 == Changelog ==
+
+= 1.0.2 =
+* Fix: requests with fbclid, utm_* or gclid parameters no longer cause a fatal error when Guard My A$$ is active.
+* Fix: plugin header, SMAU_VERSION constant and stable tag now report the same version.
+
+= 1.0.1 =
+* Version bump for Suite compatibility.
 
 = 1.0.0 =
 * Initial production release.
