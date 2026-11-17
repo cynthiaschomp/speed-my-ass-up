@@ -107,8 +107,16 @@ class SMAU_Cache_Engine {
         }
 
         // Sentinel Suite Security Hook: Check query entropy via GMA
+        // calculate_shannon_entropy() is an instance method on GMA_ML_Engine; calling it
+        // statically is a fatal error on PHP 8+. A failure in this optional companion
+        // check must never take the page down, so fall back to bypassing the cache.
         if (class_exists('GMA_ML_Engine') && !empty($_SERVER['QUERY_STRING'])) {
-            $entropy = GMA_ML_Engine::calculate_shannon_entropy($_SERVER['QUERY_STRING']);
+            try {
+                $gma_ml = method_exists('GMA_ML_Engine', 'instance') ? GMA_ML_Engine::instance() : new GMA_ML_Engine();
+                $entropy = (float) $gma_ml->calculate_shannon_entropy((string) $_SERVER['QUERY_STRING']);
+            } catch (\Throwable $e) {
+                return false;
+            }
             if ($entropy >= 4.2) {
                 // Potential cache poisoning / exploit payload - bypass cache
                 return false;
